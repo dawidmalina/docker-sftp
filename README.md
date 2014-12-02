@@ -1,4 +1,4 @@
-sftp [![Docker Build Status](http://hubstatus.container42.com/atmoz/sftp)](https://registry.hub.docker.com/u/atmoz/sftp)
+sftp [![Docker Build Status](http://hubstatus.container42.com/dawidmalina/docker-sftp)](https://registry.hub.docker.com/u/dawidmalina/docker-sftp)
 ====
 
 Easy to use SFTP (*SSH File Transfer Protocol*) server.
@@ -23,7 +23,7 @@ Examples
 ```
 docker run \
     -v /host/share:/home/foo/share \
-    -p 2222:22 -d atmoz/sftp \
+    -p 2222:22 -d dawidmalina/docker-sftp \
     foo:123:1001
 ```
 
@@ -34,7 +34,7 @@ docker run \
     -v /host/share:/home/foo/share \
     -v /host/documents:/home/foo/documents \
     -v /host/http:/home/bar/http \
-    -p 2222:22 -d atmoz/sftp \
+    -p 2222:22 -d dawidmalina/docker-sftp \
     foo:123:1001 \
     bar:abc:1002
 ```
@@ -46,7 +46,7 @@ Add `:e` behind password to mark it as encrypted. Use single quotes.
 ```
 docker run \
     -v /host/share:/home/foo/share \
-    -p 2222:22 -d atmoz/sftp \
+    -p 2222:22 -d dawidmalina/docker-sftp \
     'foo:$1$0G2g0GSt$ewU0t6GXG15.0hWoOX8X9.:e:1001'
 ```
 
@@ -59,6 +59,6 @@ Tip: you can use makepasswd to generate encrypted passwords:
 docker run \
     -v /host/id_rsa.pub:/home/foo/.ssh/authorized_keys:ro \
     -v /host/share:/home/foo/share \
-    -p 2222:22 -d atmoz/sftp \
+    -p 2222:22 -d dawidmalina/docker-sftp \
     foo::1001
 ```

@@ -1,15 +1,20 @@
-FROM debian:wheezy
-MAINTAINER Adrian Dvergsdal [atmoz.net]
+##
+# CentOS 7 plus SFTP
+##
+FROM centos:centos7
+MAINTAINER Dawid Malinowski <dawidmalina@gmail.com>
 
-# Install SSH
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y install openssh-server && \
-    rm -rf /var/lib/apt/lists/*
+# some env
+ENV REFRESHED_AT 2014-11-06
+
+# install SSH
+RUN yum -y install openssh-server && \
+    yum clean all
 
 # sshd needs this directory to run
 RUN mkdir -p /var/run/sshd
 
-# Add configuration and script
+# add configuration and script
 ADD . /root
 WORKDIR /root
 RUN mv sshd_config /etc/ssh/sshd_config && \
