@@ -18,7 +18,8 @@ RUN mkdir -p /var/run/sshd
 ADD . /root
 WORKDIR /root
 RUN mv sshd_config /etc/ssh/sshd_config && \
-    chmod +x run
+    chmod +x run && \
+    echo 'SSHD: ALL' >> /etc/hosts.allow
 
 EXPOSE 22
 
